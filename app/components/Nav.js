@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 import {signOut, signIn} from 'next-auth/react';
 
 const Nav = () => {
-    const isLogin = true;
+    const isLogin = false;
     const [toggleDropdown, setToggleDropdown] = useState(false);
     
     return (
@@ -63,13 +63,32 @@ const Nav = () => {
                     //로그인 시 >> 글 생성, 로그아웃, 프로필
                     <div className="flex mt-4 mr-2 ml-2">
                         <Image src="/images/profile.png" width={30} height={30}
+                            onClick={ () => setToggleDropdown( (isToggle) => !isToggle) }
                         />
-
+                        { toggleDropdown && (
+                            <div className='dropdown'>
+                                <Link href="/profile" className='outline_btn'
+                                    onClick={ () => setToggleDropdown(false)}>
+                                    내 프로필
+                                </Link>
+                                <Link href="/create_prompt" className='black_btn'>
+                                    글 생성
+                                </Link>
+                                <button type="button" 
+                                    onClick={signOut}
+                                    className='outline_btn'>
+                                    로그아웃
+                                </button>
+                            </div>
+                        )
+                        }
                     </div>
                     ) : (
                         //프로필이미지 하나
                         //로그아웃 시 >> 로그인, 프로필
-                        <></>
+                        <div className="flex mt-4 mr-2 ml-2">
+                            <button type='button' onClick={ () => signIn() } className='black_btn'>로그인</button>
+                        </div>
                     ) 
                 }
             </div>
