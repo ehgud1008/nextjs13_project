@@ -7,8 +7,10 @@ import { useRouter } from "next/navigation";
 import Form from '@components/Form';
 
 const CreatePrompt = () => {
+    const router = useRouter();
+
     const [submit, setSubmit] = useState(false);
-    const [post, setPost] =useState({
+    const [post, setPost] = useState({
         prompt : '',
         tag : '',
     });
@@ -26,7 +28,7 @@ const CreatePrompt = () => {
             })
 
             if(response.ok){
-                Router.push('/');
+                router.push('/');
             }
         }catch(error){
             console.log(error);

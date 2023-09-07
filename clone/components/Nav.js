@@ -32,7 +32,7 @@ const Nav = () => {
             <div className="sm:flex hidden">
                 {isLogin ? (
                     <div className="flex gap-3 md:gap-5">
-                        <Link href = "/create_prompt" className="black_btn">Create Post</Link>
+                        <Link href = "/create-prompt" className="black_btn">Create Post</Link>
                         <button type="button" onClick={signOut} className="outline_btn">
                             sign out
                         </button>

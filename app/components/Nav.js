@@ -46,12 +46,6 @@ const Nav = () => {
                                 className='outline_btn'>
                                 로그인
                             </button>
-                            <Link href="/profile">
-                                <Image src="/images/profile.png"
-                                    width={35} height={35}
-                                    className='rounded-rull'
-                                />
-                            </Link>
                         </div>
                     )
                 }
