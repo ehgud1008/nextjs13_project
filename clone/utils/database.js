@@ -3,8 +3,7 @@ import mongoose from "mongoose";
 let isConnected = false;
 
 export const connectToDB = async () => {
-    mongoose.set('strinctQuery', true);
-    
+    mongoose.set('strictQuery', true);
     if(isConnected){
         console.log('MongoDB is already connected');
         return;
@@ -12,7 +11,7 @@ export const connectToDB = async () => {
 
     try{
         await mongoose.connect(process.env.MONGODB_URI, {
-            dbName : "share_prompt",
+            dbName : "project1",
             useNewUrlParser : true,
             useUnifiedTopology : true,
         });

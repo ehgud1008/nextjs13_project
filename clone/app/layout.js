@@ -1,7 +1,6 @@
 //import React from "react";
 import '@styles/global.css';
 import Nav from "@components/Nav";
-//import Provider from '@components/Provider';
 
 export const metadata = {
     title: "Project",
@@ -12,7 +11,6 @@ const RootLayout = ({children}) => {
     return (
         <html lang="ko">
             <body>
-                {/* <Provider> */}
                     <div className='main'>
                         <div className='gradient'></div>
                     </div>
@@ -20,7 +18,6 @@ const RootLayout = ({children}) => {
                         <Nav></Nav>
                         {children}
                     </main>
-                {/* </Provider> */}
             </body>
         </html>
     )
