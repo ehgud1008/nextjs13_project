@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-const Form = ({type, post, setPost, submit, handleSubmit}) => {
+const Form = ({post, setPost, submit, handleSubmit}) => {
   return (
     <section className="w-full max-w-full flex-start flex-col">
         <h1 className="head_text text-left">
@@ -24,7 +24,7 @@ const Form = ({type, post, setPost, submit, handleSubmit}) => {
             </label>  
             <label>
                 <span className="font-semibold text-base text-gray-700">
-                    태그
+                    태그 submit
                     <span className="font-normal"> (#webdevelope #javascript, ...)</span>
                 </span>
                 <input value={post.tag}
