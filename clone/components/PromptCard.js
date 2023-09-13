@@ -9,7 +9,7 @@ const PromptCard = ( {post, handleTagClick, handleEdit, handleDelete}) => {
         <div className="prompt_card">
             <div className="flex justify-between items-start gap-5">
                 <div className="flex-1 flex justify-start items-center gap-3 cursor-pointer">
-                    <Image src={post}
+                    <Image src='/images/logo.png'
                             alt="user_image"
                             width={40}
                             height={40}
@@ -17,13 +17,13 @@ const PromptCard = ( {post, handleTagClick, handleEdit, handleDelete}) => {
                     />
                     <div className="flex flex-col">
                         <h3 className="font-semibold text-gray-900">{post}</h3>
-                        <p className="font-inter text-sm text-gray-500">{post.prompt}</p>
+                        <p className="font-inter text-sm text-gray-500">{post}</p>
                     </div>
                 </div>
 
                 <div className="copy_btn" onClick={ () => {} }>
-                    <Image src = {copied === post.prompt ? '/images/logo.png' : '/images/profile.png'}
-                        width={15} height={15} alt="copy"/>
+                    {/* <Image src = {copied === post.prompt ? '/images/logo.png' : '/images/profile.png'}
+                        width={15} height={15} alt="copy"/> */}
                 </div>
             </div>
         </div>
