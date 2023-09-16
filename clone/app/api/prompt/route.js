@@ -5,7 +5,7 @@ export const GET = async (request) => {
     try{
         await connectToDB();
         const prompts = await Prompt.find({});
-
+        
         console.log(prompts);
         return new Response(JSON.stringify(prompts), {status:200});
     }catch(error){

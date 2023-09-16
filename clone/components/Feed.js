@@ -3,18 +3,21 @@
 import React, { useEffect, useState } from "react";
 import PromptCard from '@components/PromptCard';
 
+
+//페이지 새로 고침 시 제일 먼저 실행돼서 비어있는 data를 map 할 시 key unique 에러 발생
+// >> Feed 에서 데이터 출력
 const PromptCardList =( {data, handleTagClick} ) => {
     const one = data[0];
     console.log("one = " + one);
     return (
         <div className="mt-16 prompt_layout">
-            {/* {data.map((post) => (
+            {data.map((post) => (
                 <PromptCard
-                    key={post.tag}
+                    key={post.index}
                     post={post}
-                    // handleTagClick={handleTagClick}
+                    handleTagClick={handleTagClick}
                 />
-            ))} */}
+            ))}
         </div>
     )
 }
@@ -28,7 +31,6 @@ const Feed = () => {
         const fetchPosts = async () => {
             const response = await fetch('/api/prompt');
             const data = await response.json();
-            console.log("@@@ = " + data);
                         
             setPosts(data);
         }
@@ -46,10 +48,19 @@ const Feed = () => {
                     className="search_input peer"
                 />
             </form>
-            <PromptCardList
+            <div className="mt-16 prompt_layout">
+            {posts.map((post) => (
+                <PromptCard
+                    key={post.index}
+                    post={post}
+                    handleTagClick={ () => {} }
+                />
+            ))}
+            </div>
+            {/* <PromptCardList
                 data={[posts]}
                 handleTagClick={ () => {}}
-            />
+            /> */}
         </section>
     )
 }
