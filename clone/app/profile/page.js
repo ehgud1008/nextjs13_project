@@ -2,17 +2,20 @@
 
 import React, { useEffect, useState } from 'react'
 import Profile from '@components/Profile';
+import { useRouter } from 'next/navigation';
 const MyProfile = () => {
-    const handleEdit = () =>{
-
+  const router = useRouter();
+    const handleEdit = (post) =>{
+      console.log("edit");
+      router.push(`/update-prompt?id=${post.index}`);
     };
     const handleDelete = async () =>{
-        
+      console.log("delete");
     }
     const [posts, setPosts] = useState();
     useEffect( () => {
         const fetchPosts = async () => {
-            const response = await fetch(`/api/users/user/posts`);
+            const response = await fetch(`/api/users/user11/posts`);
             const data = await response.json();
             console.log(data);
             setPosts(data);

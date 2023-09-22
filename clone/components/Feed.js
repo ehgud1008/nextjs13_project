@@ -6,9 +6,10 @@ import PromptCard from '@components/PromptCard';
 
 //페이지 새로 고침 시 제일 먼저 실행돼서 비어있는 data를 map 할 시 key unique 에러 발생
 // >> Feed 에서 데이터 출력
+// data가 없는데 뒤에 저 부분을 렌더링 하려고 해서 그렇다.
+//1. 렌더링하고 2. useEffect가 실행되고 데이터를 가져오고 3. 가져온 데이터를 이용해서 다시 렌더링 한다. 
+//그러니 1번에서 현재 에러가 난 상태이기 때문에 data?.map 으로 하면 된다.
 const PromptCardList =( {data, handleTagClick} ) => {
-    const one = data[0];
-    console.log("one = " + one);
     return (
         <div className="mt-16 prompt_layout">
             {data.map((post) => (
