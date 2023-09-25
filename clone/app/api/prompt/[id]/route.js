@@ -4,11 +4,11 @@ import Prompt from '@models/prompt';
 // GET (read)
 export const GET = async (request, {params}) => {
     try{
-        console.log(params);
+        console.log("흐ㅜㅁ " + params.index);
         await connectToDB();
-        const prompt = await Prompt.findById(params.id);
+        const prompt = await Prompt.find( {index : params.index} );
         
-        console.log(prompt);
+        // console.log("Get Prompt = " + prompt);
         if(!prompt) return new Response(" Prompt not found", {status:404});
         
         return new Response(JSON.stringify(prompt), {status:200});
@@ -29,6 +29,7 @@ export const PATCH = async (request, {params}) => {
         existingPrompt.prompt = prompt;
         existingPrompt.tag = tag;
 
+        console.log('@!#!#!@#' + existingPrompt);
         await existingPrompt.save();
 
         return new Response(JSON.stringify(existingPrompt), {status : 200});

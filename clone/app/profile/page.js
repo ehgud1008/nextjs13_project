@@ -7,10 +7,12 @@ const MyProfile = () => {
   const router = useRouter();
     const handleEdit = (post) =>{
       console.log("edit");
-      router.push(`/update-prompt?id=${post.index}`);
+      console.log(post.index);
+      router.push(`/update-prompt?index=${post.index}`);
     };
-    const handleDelete = async () =>{
+    const handleDelete = async (post) =>{
       console.log("delete");
+      
     }
     const [posts, setPosts] = useState();
     useEffect( () => {
