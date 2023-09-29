@@ -4,11 +4,10 @@ import Prompt from '@models/prompt';
 // GET (read)
 export const GET = async (request, {params}) => {
     try{
-        console.log("흐ㅜㅁ " + params.index);
         await connectToDB();
-        const prompt = await Prompt.find( {index : params.index} );
+        const prompt = await Prompt.find( {_id : '64fec9684616bb4618e93aff'} );
         
-        // console.log("Get Prompt = " + prompt);
+        console.log("Get Prompt = " + prompt);
         if(!prompt) return new Response(" Prompt not found", {status:404});
         
         return new Response(JSON.stringify(prompt), {status:200});

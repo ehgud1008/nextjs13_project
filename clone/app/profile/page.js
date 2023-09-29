@@ -7,7 +7,6 @@ const MyProfile = () => {
   const router = useRouter();
     const handleEdit = (post) =>{
       console.log("edit");
-      console.log(post.index);
       router.push(`/update-prompt?index=${post.index}`);
     };
     const handleDelete = async (post) =>{
@@ -19,7 +18,7 @@ const MyProfile = () => {
         const fetchPosts = async () => {
             const response = await fetch(`/api/users/user11/posts`);
             const data = await response.json();
-            console.log(data);
+            console.log("/api/users/user11/posts response >> " + data);
             setPosts(data);
         }          
         fetchPosts();

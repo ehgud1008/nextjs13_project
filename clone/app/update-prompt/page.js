@@ -10,7 +10,7 @@ const UpdatePrompt = () => {
 
     const searchParams = useSearchParams();
     const promptId = searchParams.get('index');
-    console.log(promptId);
+    console.log("searchParams >> " + searchParams.toString());
     const [submit, setSubmit] = useState(false);
     const [post, setPost] = useState({
         prompt : '',

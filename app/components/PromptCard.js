@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import React, { useState } from 'react'
 
-const PromptCard = ({ post, handleTagClick }) => {
+const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   const [copied, setCopied] = useState("");
     const handleCopy = () => {
         setCopied(post.prompt);
@@ -38,6 +38,14 @@ const PromptCard = ({ post, handleTagClick }) => {
             onClick={ () => { handleTagClick && handleTagClick(post.tag) }}>
             {post.tag}
         </p>
+        <div className="mt-5 flex-center gap-4 border-t border-gray-100 pt-3">
+            <p className="text-sm green_gradient cursor-pointer" onClick={handleEdit}>
+                편집
+            </p>
+            <p className="text-sm orange_gradient cursor-pointer" onClick={handleDelete}>
+                삭제
+            </p>
+        </div>
     </div>
   )
 }
