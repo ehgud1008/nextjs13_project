@@ -21,7 +21,7 @@ export const PATCH = async (request, {params}) => {
     const {prompt, tag } = await request.json();
     try{
         await connectToDB();
-        const existingPrompt = await Prompt.findById(params.id);
+        const existingPrompt = await Prompt.findByIdAndUpdated(params.id);
 
         if(!existingPrompt) return new Response(" Prompt not found", {status:404});
 
@@ -43,7 +43,7 @@ export const DELETE = async (request, {params}) => {
     try {
         await connectToDB();
         
-        await Prompt.findByIdAndRemove(params.id);
+        await Prompt.findByIdAndDelete(params.id);
 
         return new Response("Prompt deleted Success", {status : 200});
     } catch (error) {

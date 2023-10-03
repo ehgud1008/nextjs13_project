@@ -39,6 +39,7 @@ const CreatePrompt = () => {
       setPost={setPost}
       submit={submit}
       handleSubmit={createPrompt}
+      name="생성"
     />
   )
 }

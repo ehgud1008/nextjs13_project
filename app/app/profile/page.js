@@ -17,12 +17,25 @@ const MyProfile = () => {
     }
     fetchPosts();
   }, []);
-  const handleEdit = () => {
-    console.log("edit " + posts.index);
-    router.push(`/update_prompt?index=${posts.index}`)
+  const handleEdit = (post) => {
+    console.log("edit " + post.index);
+    router.push(`/update_prompt?index=${post.index}`)
   }
-  const handleDelete = () => {
-    
+  const handleDelete = async (post) => {
+    const hasConfirmed = confirm("삭제하시겠습니까??");
+    if(hasConfirmed){
+      try {
+        const response = await fetch(`/prompt/${post.index}`,{
+          method : 'DELETE'
+        });
+        const filteredPost = posts.filter( (p) => p._id !== post._id);
+
+        setPosts(filteredPost);
+      }catch(error){
+        console.log(error);
+        alert('삭제 실패');
+      }
+    }
   }
   return (
     <Profile
